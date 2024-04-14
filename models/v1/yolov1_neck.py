@@ -20,8 +20,9 @@ class SPPF(nn.Module):
         x = self.cv1(x)
         y1 = self.m(x)
         y2 = self.m(y1)
+        y3 = self.m(y2)
 
-        return self.cv2(torch.cat((x, y1, y2, self.m(y2)), 1))
+        return self.cv2(torch.cat((x, y1, y2, y3), 1))
 
 
 # 搭建Neck网络
